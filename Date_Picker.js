@@ -24,7 +24,7 @@
 
             var lastDayOfMonth = new Date(year,month,0);//利用越界，本月最后一天；
             var lastDate = lastDayOfMonth.getDate();
-            console.dir(firstDay,firstDayWeekDay,lastDateOfLastMonth,lastDateOfLastMonth,preMonthDayCount,lastDayOfMonth,lastDate)
+            console.log("firstDaY: "+firstDay+"\n","firstDaYWeekDay: "+firstDayWeekDay+"\n","lastDayOfLastMonth: "+lastDayOfLastMonth+"\n","lastDateOfLastMonth: "+lastDateOfLastMonth+"\n","preMonthDayCount: "+preMonthDayCount+"\n","lastDaYOfMonth :"+lastDayOfMonth+"\n","latDat: "+lastDate+"\n")
             for(var i=0;i<7*6;i++){
                 var date = i+1-preMonthDayCount;
                 var showDate = date;
@@ -33,7 +33,7 @@
                 if(date<=0){
                     thisMonth = month-1; 
                     showDate = lastDateOfLastMonth + date;
-                    console.log("showDate",showDate,lastDateOfLastMonth);
+                    //console.log("showDate",showDate,lastDateOfLastMonth);
                 }else if(date > lastDate){
                     //next month
                     thisMonth = month+1;
