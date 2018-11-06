@@ -6,12 +6,14 @@
     }
     DatePicker.getMonthData = function(year,month){
         var ret = [];
+        //console.log("in get MonthData");
         if(!year || !month){
+            console.log("default");
             var today = new Date();//没有给就默认今天；
             year = today.getFullYear();
             month = today .getMonth() +1 ;
         }
-        else{
+        
             var firstDay = new Date(year,month-1,1);
             var firstDayWeekDay = firstDay.getDay();
             if(firstDayWeekDay ===0){
@@ -24,8 +26,8 @@
 
             var lastDayOfMonth = new Date(year,month,0);//利用越界，本月最后一天；
             var lastDate = lastDayOfMonth.getDate();
-            console.log("firstDaY: "+firstDay+"\n","firstDaYWeekDay: "+firstDayWeekDay+"\n","lastDayOfLastMonth: "+lastDayOfLastMonth+"\n","lastDateOfLastMonth: "+lastDateOfLastMonth+"\n","preMonthDayCount: "+preMonthDayCount+"\n","lastDaYOfMonth :"+lastDayOfMonth+"\n","latDat: "+lastDate+"\n")
-            for(var i=0;i<7*6;i++){
+            //console.log("firstDaY: "+firstDay+"\n","firstDaYWeekDay: "+firstDayWeekDay+"\n","lastDayOfLastMonth: "+lastDayOfLastMonth+"\n","lastDateOfLastMonth: "+lastDateOfLastMonth+"\n","preMonthDayCount: "+preMonthDayCount+"\n","lastDaYOfMonth :"+lastDayOfMonth+"\n","latDat: "+lastDate+"\n")
+            for(var i=0;i<7*5;i++){
                 var date = i+1-preMonthDayCount;
                 var showDate = date;
                 var thisMonth = month;
@@ -52,8 +54,8 @@
                 })
 
             }
-        }
-        console.table(ret);
+        
+        //console.table(ret);
         return ret;
     }
     window.DatePicker = DatePicker;
