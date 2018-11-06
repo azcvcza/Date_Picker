@@ -27,8 +27,34 @@
             console.dir(firstDay,firstDayWeekDay,lastDateOfLastMonth,lastDateOfLastMonth,preMonthDayCount,lastDayOfMonth,lastDate)
             for(var i=0;i<7*6;i++){
                 var date = i+1-preMonthDayCount;
+                var showDate = date;
+                var thisMonth = month;
+                // last month
+                if(date<=0){
+                    thisMonth = month-1; 
+                    showDate = lastDateOfLastMonth + date;
+                    console.log("showDate",showDate,lastDateOfLastMonth);
+                }else if(date > lastDate){
+                    //next month
+                    thisMonth = month+1;
+                    showDate = showDate - lastDate;
+                }
+                if(thisMonth ===0){
+                    thisMonth=12;
+                }
+                if(thisMonth ===13){
+                    thisMonth =1;
+                }
+                ret.push({
+                    month:thisMonth,
+                    date:date,
+                    showDate:showDate
+                })
+
             }
         }
+        console.table(ret);
+        return ret;
     }
     window.DatePicker = DatePicker;
 })()

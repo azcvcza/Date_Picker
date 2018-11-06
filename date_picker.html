@@ -104,7 +104,7 @@
 </style>
 
 <body>
-    <table id="table_container"class="cal" summary="A calendar style date picker">
+    <table id="table_container" class="cal" summary="A calendar style date picker">
         <caption>
             <a href="#" rel="prev">&lt</a>
             <span>January 2018</span>
@@ -180,4 +180,8 @@
     </table>
 </body>
 <script src="Date_Picker.js"></script>
+<script>
+    var monthData = DatePicker.getMonthData(2016,12);
+    console.log(monthData);
+</script>
 </html>
