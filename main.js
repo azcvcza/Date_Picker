@@ -3,7 +3,7 @@
     //console.log("in main.je", datepicker)
 
     datepicker.buildUI = function (year, month) {
-        console.log("sss",year,month)
+        
         function getMonthDay(year, month) {
             var table_normal = {
                 1: 31,
@@ -52,9 +52,25 @@
             }
             return false;
         }
-        console.log(checkYear,getMonthDay,year,month);
+        
         var monthData = datepicker.getMonthData(year, month);
-        //console.log("monthData",monthData,datepicker.getMonthData);
+        //确定当月月份
+        var temp_month = {};
+        for(var i = 0;i<monthData.length;i++){
+           if(!temp_month[monthData[i].month]){
+            temp_month[""+monthData[i].month+""]=1;
+           }
+           else{
+               temp_month[""+monthData[i].month+""]+=1;    
+           }
+        }
+        var this_month = 0;
+        for(i in temp_month){
+            if(temp_month[i]>25){
+                this_month = i;
+            }
+        }
+        //确定结束
         var html = '<table id="table_container" class="cal" summary="A calendar style date picker">' +
             '<caption>' +
             '<a href="#" rel="prev">&lt</a>' +
@@ -82,31 +98,30 @@
             '</tr>' +
             '</thead>' +
             '<tbody>';
+        
         for (var i = 0; i < monthData.length; i++) {
             var date = monthData[i];
             if (i % 7 === 0) {
                 //第一天
                 html += '<tr>';
             }
-            console.log(monthData[i].date);
-            if (monthData[i].date > 0 && monthData[i].date <31) {
+            if (monthData[i].date > 0 && monthData[i].date <= getMonthDay(monthData[i].year,this_month)) {
                 html += '<td>' + "<a href=\"#\">" + date.showDate + "</a></td>";
-            } else {
+            } else{
                 html += '<td class="null">' + date.showDate + "</td>";
             }
-
             if (i % 7 === 6) {
                 //最后一天
                 html += '</tr>';
             }
         }
-        console.log(html);
+        //console.log(html);
         html += '</tbody>' + '</table>'; //end template
         return html;
     } //end buildUI
     datepicker.init = function (dom) {
         var html = datepicker.buildUI();
-        console.log("in init", html, "\n dom", dom)
+        //console.log("in init", html, "\n dom", dom)
 
         dom.innerHTML = html;
     } //end init
