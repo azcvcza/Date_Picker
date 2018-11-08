@@ -71,12 +71,19 @@
         text-shadow: 1px 1px 1px #fff;
         background-color: #d0d9e2;
     }
-
-    .cal tbody td {
+    .cal tbody td{
         border-top: 1px solid #e0e0e1;
         border-right: 1px solid #9f9fa1;
         border-bottom: 1px solid #acacad;
         border-left: 1px solid #dfdfe0;
+        
+    }
+    .cal tbody td.this_month{
+        border-top: 1px solid #e0e0e1;
+        border-right: 1px solid #9f9fa1;
+        border-bottom: 1px solid #acacad;
+        border-left: 1px solid #dfdfe0;
+        color:black;
     }
 
     .cal tbody a {
@@ -88,35 +95,64 @@
         padding: .385em .692em .308em .692em;
     }
 
-    .cal tbody a:hover,
-    .cal tbody a:focus,
-    .cal tbody a:active,
-    .cal tbody .selected a:link,
-    .cal tbody .selected a:visited,
-    .cal tbody .selected a:hover,
-    .cal tbody .selected a:focus,
-    .cal tbody .selected a:active {
+    .cal tbody td:hover,
+    .cal tbody td:focus,
+    .cal tbody td:active,
+    .cal tbody .selected td:hover,
+    .cal tbody .selected td:focus,
+    .cal tbody .selected td:active {
         background: #6d8ab7;
         color: white;
         text-shadow: 1px 1px 2px #22456b;
-    }
-
-    .cal tbody td:hover,
-    .cal tbody td.selected {
         border-top: 1px solid #2a3647;
         border-right: 1px solid #465977;
         border-bottom: 1px solid #576e92;
         border-left: 1px solid #466080;
     }
+
+   
+    input.datepicker{
+        border:1px solid #ccc;
+        border-radius:4px;
+        padding:5px;
+        height:24px;
+        line-height:24px;
+        width:230px;
+    }
+    input.datepicker:focus{
+        outline:0 none;
+        border:1px solid #1abc9c;
+    }
+    .t_picker{
+        position:absolute;
+        display: none;
+        width:240px;
+
+    }
+    .t_picker-show{
+        display: block;
+    }
 </style>
 
 <body>
+    <input type="text" class="datepicker">
     
-  
 </body>
 <script src="Date_Picker.js"></script>
 <script src="main.js"></script>
 <script>
-    DatePicker.init(document.body);
+   
+    DatePicker.init(".datepicker");
+   /*
+    var input =document.getElementsByTagName("input")[0];
+    
+    var target = document.getElementById("picker");
+    input.addEventListener("focus",function(){
+        target.classList.add("on_hover");
+    })
+    
+    input.addEventListener("blur",function(){
+        target.classList.remove("on_hover");
+    })*/
 </script>
 </html>
