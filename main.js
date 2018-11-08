@@ -200,9 +200,7 @@
                         wrapper.classList.remove("t_picker-show");
                         wrapper.classList.add("t_picker");
                     }
-                    
                 }
-                
             })
 
         })
