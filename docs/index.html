@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>table learning</title>
+</head>
+<style>
+    table.cal {
+        border-collapse: separate;
+        border-spacing: 0;
+        text-align: center;
+        color: #333;
+        border-radius: 4px;
+        
+        line-height: 24px;
+        width:230px;
+    }
+    table.cal:focus{
+        outline:0 none;
+        border:1px solid #1abc9c;
+    }
+    .cal th,
+    .cal td {
+        margin: 0;
+        padding: 0;
+    }
+
+    .cal caption {
+        font-size: 1.25em;
+        padding-top: 0.692em;
+        padding-bottom: 0.692em;
+        background-color: #d4dde6;
+    }
+
+    .cal caption[rel="prev"] {
+        float: left;
+        margin-left: .2em;
+
+    }
+
+    .cal caption[rel="next"] {
+        float: right;
+        margin-right: .2em;
+
+    }
+
+    .cal caption a:link,
+    .cal caption a:visited {
+        text-decoration: none;
+        color: #333;
+        padding: 0 .2em;
+    }
+
+    .cal caption a:hover,
+    .cal caption a:active,
+    .cal caption a:focus {
+        background-color: #6d8ab7;
+    }
+
+    .cal thead th {
+        background-color: #d4dde6;
+        border-bottom: 1px solid #a9bacb;
+        font-size: .875em;
+    }
+
+    .cal tbody {
+        color: #a4a4a4;
+        text-shadow: 1px 1px 1px #fff;
+        background-color: #d0d9e2;
+    }
+    .cal tbody td{
+        border-top: 1px solid #e0e0e1;
+        border-right: 1px solid #9f9fa1;
+        border-bottom: 1px solid #acacad;
+        border-left: 1px solid #dfdfe0;
+        
+    }
+    .cal tbody td.this_month{
+        border-top: 1px solid #e0e0e1;
+        border-right: 1px solid #9f9fa1;
+        border-bottom: 1px solid #acacad;
+        border-left: 1px solid #dfdfe0;
+        color:black;
+    }
+
+    .cal tbody a {
+        display: block;
+        text-decoration: none;
+        color: #333;
+        background-color: #c0c8d2;
+        font-weight: bold;
+        padding: .385em .692em .308em .692em;
+    }
+
+    .cal tbody td:hover,
+    .cal tbody td:focus,
+    .cal tbody td:active,
+    .cal tbody .selected td:hover,
+    .cal tbody .selected td:focus,
+    .cal tbody .selected td:active {
+        background: #6d8ab7;
+        color: white;
+        text-shadow: 1px 1px 2px #22456b;
+        border-top: 1px solid #2a3647;
+        border-right: 1px solid #465977;
+        border-bottom: 1px solid #576e92;
+        border-left: 1px solid #466080;
+    }
+
+   
+    input.datepicker{
+        border:1px solid #ccc;
+        border-radius:4px;
+        padding:5px;
+        height:24px;
+        line-height:24px;
+        width:230px;
+    }
+    input.datepicker:focus{
+        outline:0 none;
+        border:1px solid #1abc9c;
+    }
+    .t_picker{
+        position:absolute;
+        display: none;
+        width:240px;
+
+    }
+    .t_picker-show{
+        display: block;
+    }
+</style>
+
+<body>
+    <input type="text" class="datepicker">
+    
+</body>
+<script src="Date_Picker.js"></script>
+<script src="main.js"></script>
+<script>
+   
+    DatePicker.init(".datepicker");
+   /*
+    var input =document.getElementsByTagName("input")[0];
+    
+    var target = document.getElementById("picker");
+    input.addEventListener("focus",function(){
+        target.classList.add("on_hover");
+    })
+    
+    input.addEventListener("blur",function(){
+        target.classList.remove("on_hover");
+    })*/
+</script>
+</html>
